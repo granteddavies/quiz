@@ -4,7 +4,7 @@
     android:background="#444444"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.quiz.QuestionFragment">
+    tools:context=".ImageQuestionFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

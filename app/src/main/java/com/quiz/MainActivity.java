@@ -1,7 +1,5 @@
 package com.quiz;
 
-import android.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -50,18 +48,26 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void endQuiz(int score, int possibleScore) {
+    public void startQuiz() {
         getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.main_fragment_container, ResultFragment.newInstance(score, possibleScore))
+                .replace(R.id.main_fragment_container, ImageQuestionFragment.newInstance(0))
                 .addToBackStack(null)
                 .commit();
     }
 
-    public void startQuiz() {
+    public void startTextQuestion(int score) {
         getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.main_fragment_container, QuestionFragment.newInstance(0, 0))
+                .replace(R.id.main_fragment_container, TextQuestionFragment.newInstance(score))
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void endQuiz(int score) {
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_fragment_container, ResultFragment.newInstance(score, 2))
                 .addToBackStack(null)
                 .commit();
     }

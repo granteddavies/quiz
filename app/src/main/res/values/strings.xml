@@ -7,8 +7,4 @@
     // Main activity
     <string name="start_button">Start</string>
 
-    // Question fragment
-    <string name="yes_button">Yes</string>
-    <string name="no_button">No</string>
-
 </resources>
