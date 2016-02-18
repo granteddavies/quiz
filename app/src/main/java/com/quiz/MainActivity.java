@@ -23,12 +23,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startButton.setVisibility(View.GONE);
-                getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.main_fragment_container, new QuestionFragment())
-                        .addToBackStack(null)
-                        .commit();
-                QuestionFragment.newInstance(0, 0);
+                startQuiz();
             }
         });
     }
@@ -56,6 +51,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void endQuiz(int score, int possibleScore) {
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_fragment_container, ResultFragment.newInstance(score, possibleScore))
+                .addToBackStack(null)
+                .commit();
+    }
 
+    public void startQuiz() {
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_fragment_container, QuestionFragment.newInstance(0, 0))
+                .addToBackStack(null)
+                .commit();
     }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class QuestionFragment extends Fragment {
 
@@ -87,7 +88,7 @@ public class QuestionFragment extends Fragment {
                 break;
             case 2:
                 textQuestion.setText("Was this quiz fun?");
-                imageQuestion.setImageResource(R.drawable.star);
+                imageQuestion.setImageResource(0);
                 answer = true;
                 break;
         }
