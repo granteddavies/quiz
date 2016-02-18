@@ -1,10 +1,13 @@
 package com.quiz;
 
+import android.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -13,6 +16,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Set up button listener
+        final Button startButton = (Button) findViewById(R.id.start_button);
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startButton.setVisibility(View.GONE);
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_fragment_container, new QuestionFragment())
+                        .addToBackStack(null)
+                        .commit();
+                QuestionFragment.newInstance(0, 0);
+            }
+        });
     }
 
     @Override
@@ -35,5 +53,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void endQuiz(int score, int possibleScore) {
+
     }
 }
