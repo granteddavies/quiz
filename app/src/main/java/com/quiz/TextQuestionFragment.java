@@ -54,9 +54,12 @@ public class TextQuestionFragment extends Fragment {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // If the question is answered correctly, increment score
                 if (checkBoxYes.isChecked()) {
                     score++;
                 }
+
+                // End the quiz and show resuslts
                 ((MainActivity) getActivity()).endQuiz(score);
             }
         });

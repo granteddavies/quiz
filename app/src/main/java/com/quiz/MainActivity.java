@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 
+/**
+ * Main activity that handles all the logic for this quiz app.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Make sure to hide the button
                 startButton.setVisibility(View.GONE);
                 startQuiz();
             }
@@ -48,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Logic for begining the quiz. Pulls up the fragment for the image question.
+     */
     public void startQuiz() {
         getFragmentManager()
                 .beginTransaction()
@@ -56,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    /**
+     * Logic for moving to the second question of the quiz. Pulls up the fragment for the text
+     * question.
+     *
+     * @param score the current number of correctly answered questions
+     */
     public void startTextQuestion(int score) {
         getFragmentManager()
                 .beginTransaction()
@@ -64,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    /**
+     * Logic for ending the quiz. Pulls up the fragment for the results.
+     *
+     * @param score the current number of correctly answered questions
+     */
     public void endQuiz(int score) {
         getFragmentManager()
                 .beginTransaction()

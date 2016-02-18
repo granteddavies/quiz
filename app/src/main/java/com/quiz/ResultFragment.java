@@ -60,12 +60,14 @@ public class ResultFragment extends Fragment {
         buttonAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Restart the quiz
                 ((MainActivity) getActivity()).startQuiz();
             }
         });
         buttonQuit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Return to home (exit the app)
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

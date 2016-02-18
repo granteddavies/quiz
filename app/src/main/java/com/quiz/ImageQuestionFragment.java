@@ -53,9 +53,12 @@ public class ImageQuestionFragment extends Fragment {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // If the question is answered correctly, increment the score
                 if (editTextAnswer.getText().toString().equalsIgnoreCase("star")) {
                     score++;
                 }
+
+                // Move on to the text question
                 ((MainActivity) getActivity()).startTextQuestion(score);
             }
         });
